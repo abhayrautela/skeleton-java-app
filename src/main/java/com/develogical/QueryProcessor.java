@@ -21,7 +21,7 @@ public class QueryProcessor {
         return response;
     }
 
-    public String process1(String query) {
+    public String process(String query) {
         String response = "";
         if (query != null && query.trim().equals("")) {
             return response;
