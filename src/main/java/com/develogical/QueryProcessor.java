@@ -40,10 +40,26 @@ public class QueryProcessor {
             response = largest(cq);
         }
 
-        if (cq.contains("which of the following numbers is both a square and a cube: 671, 729, 4096, 616")) {
-            response = largest(cq);
+        if (cq.contains("which of the following numbers is both a square and a cube")) {
+            response = sqcube(cq);
         }
 
+        return response;
+    }
+
+    private String sqcube(String cq) {
+        String response = "";
+        String nums = cq.substring(cq.lastIndexOf(":") + 2);
+        String[] arr = nums.split(", ");
+        for (String num : arr) {
+            double rt = Math.sqrt(Integer.parseInt(num));
+            if ((rt * rt == Integer.parseInt(num))) {
+                double crt = Math.cbrt(Integer.parseInt(num));
+                if (crt * crt * crt == Integer.parseInt(num)) {
+                    return num;
+                }
+            }
+        }
         return response;
     }
 }
