@@ -42,6 +42,6 @@ public class QueryProcessorTest {
 
     @Test
     public void cube() throws Exception {
-        assertThat(queryProcessor.process("4278c9a0:%20which%20of%20the%20following%20numbers%20is%20both%20a%20square%20and%20a%20cube:%20900,%20159,%20454,%201764"), is("159"));
+        assertThat(queryProcessor.process("60385770:%20which%20of%20the%20following%20numbers%20is%20both%20a%20square%20and%20a%20cube:%202116,%20651"), is("2116"));
     }
 }

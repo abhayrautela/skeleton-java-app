@@ -53,13 +53,21 @@ public class QueryProcessor {
         String[] arr = nums.split(", ");
         for (String num : arr) {
             double rt = Math.sqrt(Integer.parseInt(num));
-            if ((rt * rt == Integer.parseInt(num))) {
+            if ((rt - Math.floor(rt)) == 0) {
                 double crt = Math.cbrt(Integer.parseInt(num));
-                if (crt * crt * crt == Integer.parseInt(num)) {
+                if ((rt - Math.floor(rt)) == 0) {
                     return num;
                 }
             }
         }
         return response;
+    }
+
+    private String minus(String cq) {
+        //what%20is%2013%20minus%2014
+//        what is 13 minus 14
+////            String a = xq.sub
+        return null;
+
     }
 }
