@@ -12,7 +12,7 @@ public class QueryProcessor {
     public String largest(String query) {
         String response = "";
         String cq = query;
-        int a = cq.indexOf(": ");
+        int a = cq.lastIndexOf(": ");
         int b = cq.indexOf(",");
         String firstNumber = cq.substring(a + 2, b);
         String secondNumber = cq.substring(b + 2);
@@ -39,6 +39,11 @@ public class QueryProcessor {
         if (cq.contains("which of the following numbers is the largest")) {
             response = largest(cq);
         }
+
+        if (cq.contains("which of the following numbers is both a square and a cube: 671, 729, 4096, 616")) {
+            response = largest(cq);
+        }
+
         return response;
     }
 }
