@@ -29,4 +29,9 @@ public class QueryProcessorTest {
     public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
         assertThat(queryProcessor.process("test"), is(""));
     }
+
+    @Test
+    public void returnsYourName() throws Exception {
+        assertThat(queryProcessor.process("what is your name"), is("Abhay Rautela"));
+    }
 }
