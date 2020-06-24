@@ -6,6 +6,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("romeo and juliet")) {
             return "William Shakespeare";
         }
+        if (query.toLowerCase().contains("merchant of venice")) {
+            return "William Shakespeare";
+        }
         return "";
     }
 }
