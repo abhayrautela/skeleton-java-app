@@ -7,10 +7,21 @@ public class QueryProcessor {
     }
 
     public static void main(String[] args) {
-        System.out.println(QueryProcessor.clean("%20which%20of%20the%20following%20numbers%20is%20the%20largest:%2091,%20367,%20896,%2096"));
     }
 
-    public String process(String query) {
+    public String largest(String query) {
+        String response = "";
+        String cq = clean(query);
+        int a = cq.indexOf(": ");
+        int b = cq.indexOf(",");
+        String firstNumber = cq.substring(a + 2, b);
+        String secondNumber = cq.substring(b + 2);
+        int result = Math.max(Integer.parseInt(firstNumber), Integer.parseInt(secondNumber));
+        response = String.valueOf(result);
+        return response;
+    }
+
+    public String process1(String query) {
         String response = "";
         if (query != null && query.trim().equals("")) {
             return response;
@@ -23,48 +34,10 @@ public class QueryProcessor {
         }
         if (query.toLowerCase().contains("what is your name")) {
             response = "Abhay Rautela";
+            response = response;
         }
-
-        if (query.toLowerCase().contains("what is 1 plus 6")) {
-            response = "7";
-        }
-
-        if (query.toLowerCase().contains("what is 1 plus 13")) {
-            response = "14";
-        }
-
-        if (query.toLowerCase().contains("which of the following numbers is the largest: 1, 11, 35, 433")) {
-            response = "433";
-        }
-
-        if (query.toLowerCase().contains("what is 5 plus 5")) {
-            response = "10";
-        }
-
-        if (query.toLowerCase().contains("what is 15 plus 15")) {
-            response = "30";
-        }
-
-        if (query.toLowerCase().contains("which of the following numbers is the largest: 272, 88")) {
-            response = "272";
-        }
-        if (query.toLowerCase().contains("6,580")) {
-            response = "580";
-        }
-
-        if (query.toLowerCase().contains(" 91, 367, 896, 96")) {
-            response = "896";
-        }
-
-        if (query.toLowerCase().contains(clean("what%20is%208%20plus%2010"))) {
-            response = "18";
-        }
-        if (query.toLowerCase().contains(clean("which%20of%20the%20following%20numbers%20is%20the%20largest:%206,%20515,%20241,%2084"))) {
-            response = "515";
-        }
-
-        if (query.toLowerCase().contains(clean("what%20is%2010%20plus%2017"))) {
-            response = "27";
+        if (query.contains("which of the following numbers is the largest")) {
+            response = largest(query);
         }
         return response;
     }
