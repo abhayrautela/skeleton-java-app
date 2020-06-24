@@ -9,6 +9,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("merchant of venice")) {
             return "William Shakespeare";
         }
+        if (query.toLowerCase().contains("what is your name")) {
+            return "Abhay Rautela";
+        }
         return "";
     }
 }
