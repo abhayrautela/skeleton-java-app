@@ -11,7 +11,7 @@ public class QueryProcessor {
 
     public String largest(String query) {
         String response = "";
-        String cq = clean(query);
+        String cq = query;
         int a = cq.indexOf(": ");
         int b = cq.indexOf(",");
         String firstNumber = cq.substring(a + 2, b);
@@ -34,10 +34,10 @@ public class QueryProcessor {
         }
         if (query.toLowerCase().contains("what is your name")) {
             response = "Abhay Rautela";
-            response = response;
         }
-        if (query.contains("which of the following numbers is the largest")) {
-            response = largest(query);
+        String cq = clean(query);
+        if (cq.contains("which of the following numbers is the largest")) {
+            response = largest(cq);
         }
         return response;
     }

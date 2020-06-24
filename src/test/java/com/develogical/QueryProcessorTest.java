@@ -31,7 +31,7 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void returnsYourName() throws Exception {
-        assertThat(queryProcessor.process("what is your name"), is("Abhay Rautela"));
+    public void returnsLargest() throws Exception {
+        assertThat(queryProcessor.process("which%20of%20the%20following%20numbers%20is%20the%20largest:%20965,%2027"), is("965"));
     }
 }
