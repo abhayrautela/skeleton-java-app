@@ -8,20 +8,25 @@ import static org.junit.Assert.assertThat;
 
 public class QueryProcessorTest {
 
-  QueryProcessor queryProcessor = new QueryProcessor();
+    QueryProcessor queryProcessor = new QueryProcessor();
 
-  @Test
-  public void knowsWhoWroteRomeoAndJuliet() throws Exception {
-    assertThat(queryProcessor.process("Who wrote Romeo And Juliet"), containsString("Shakespeare"));
-  }
+    @Test
+    public void knowsWhoWroteRomeoAndJuliet() throws Exception {
+        assertThat(queryProcessor.process("Who wrote Romeo And Juliet"), containsString("Shakespeare"));
+    }
 
-  @Test
-  public void isNotCaseSensitive() throws Exception {
-    assertThat(queryProcessor.process("who wrote romeo and juliet"), containsString("Shakespeare"));
-  }
+    @Test
+    public void isNotCaseSensitive() throws Exception {
+        assertThat(queryProcessor.process("who wrote romeo and juliet"), containsString("Shakespeare"));
+    }
 
-  @Test
-  public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
-    assertThat(queryProcessor.process("test"), is(""));
-  }
+    @Test
+    public void knowsWhoWroteMerchantOfVenice() throws Exception {
+        assertThat(queryProcessor.process("Who wrote Merchant of venice"), containsString("Shakespeare"));
+    }
+
+    @Test
+    public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
+        assertThat(queryProcessor.process("test"), is(""));
+    }
 }
